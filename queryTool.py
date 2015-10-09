@@ -71,7 +71,7 @@ def main():
 		for dx in olist:
 			vuelist.sort(key=lambda x: x[dx])
 	
-	#select disply columns
+	#select display columns
 	if args.select != None:
 		clist = sorted(selectcolum(args.select))
 		newlist = list()
@@ -82,7 +82,8 @@ def main():
 			newlist.append(showlist)
 	#order columns
 	for ln in newlist:
-		print(ln)
+		nustr = "'%s" % "', '".join(ln)
+		print(nustr + "'")
 
 	
 main()

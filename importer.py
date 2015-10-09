@@ -64,9 +64,8 @@ def readImport(openme):
 			
 #do I have a file args to open?
 #If not open the test file importFile
-print("This value will = 2 if in a command shell with an arg is given")
+#print("This value will = 2 if in a command shell with an arg is given")
 cntargs = len(sys.argv)
-print(cntargs)
 
 if cntargs < 2 :
 	import_sql.validFile(importFile)
@@ -77,8 +76,11 @@ else :
 		if isinstance(arg, str) or isinstance(arg, unicode):
 			import_sql.validFile(arg)
 			latest = arg
-			#In a real system we would move the original file aside as history
+			#In a real system we would create a temp table in the db, validate the entry
+			#and deal with rejected data.  Then load this temp data into our production schemas
 			readImport(latest)
+			#In a real system we would move the original file aside as history
+			#storeHist(latest)
 		#
 		#Partition Data 
 
